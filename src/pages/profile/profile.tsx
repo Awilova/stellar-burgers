@@ -2,7 +2,7 @@ import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 
 import { selectUser } from '@slices';
-import {updateUser} from '@thunk';
+import { updateUser } from '@thunk';
 import { useAppDispatch, useAppSelector } from '@hooks';
 
 export const Profile: FC = () => {
@@ -31,7 +31,7 @@ export const Profile: FC = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     if (!isFormChanged) return;
-      dispatch(updateUser(formValue));
+    dispatch(updateUser(formValue));
   };
 
   const handleCancel = (e: SyntheticEvent) => {

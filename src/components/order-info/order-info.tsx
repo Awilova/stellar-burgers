@@ -8,11 +8,9 @@ import { getOrderByNumber } from '@thunk';
 import { selectIngredients, selectOrderByNumber } from '@slices';
 import { useAppDispatch, useAppSelector } from '@hooks';
 
-
 export const OrderInfo: FC = () => {
-  
   const dispatch = useAppDispatch();
-  const { number} = useParams();
+  const { number } = useParams();
 
   const orderData = useAppSelector(selectOrderByNumber);
   const ingredient = useAppSelector(selectIngredients);

@@ -1,7 +1,7 @@
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { LoginUI } from '@ui-pages';
 
-import { selectIsAuth} from '@slices';
+import { selectIsAuth } from '@slices';
 import { loginUser } from '@thunk';
 import { useAppDispatch, useAppSelector } from '@hooks';
 import { Navigate } from 'react-router-dom';

@@ -7,10 +7,12 @@ import {
   selectConstructorItems,
   selectOrderModalData,
   selectOrderRequest,
-  setOrdersModal, selectUser, selectIsAuth
+  setOrdersModal,
+  selectUser,
+  selectIsAuth
 } from '@slices';
 import { useAppDispatch, useAppSelector } from '@hooks';
-import { postOrderBurgers} from '@thunk';
+import { postOrderBurgers } from '@thunk';
 
 export const BurgerConstructor: FC = () => {
   const constructorItems = useAppSelector(selectConstructorItems);
@@ -22,21 +24,22 @@ export const BurgerConstructor: FC = () => {
   const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
 
-  const initialBurger = (bunId: string, ingredients: TConstructorIngredient[]) =>
-    [bunId, ...ingredients.map(({ _id }) => _id), bunId];
+  const initialBurger = (
+    bunId: string,
+    ingredients: TConstructorIngredient[]
+  ) => [bunId, ...ingredients.map(({ _id }) => _id), bunId];
 
   const onOrderClick = () => {
     if (!constructorItems.bun || orderRequest) return;
-    if (user && isAuth
-    ) {
-    dispatch(
-      postOrderBurgers(
-        initialBurger(constructorItems.bun!._id, constructorItems.ingredients)
-      )
-    );
+    if (user && isAuth) {
+      dispatch(
+        postOrderBurgers(
+          initialBurger(constructorItems.bun!._id, constructorItems.ingredients)
+        )
+      );
     } else {
       navigate('/login', { state: { from: '/' } });
-    };
+    }
   };
 
   const closeOrderModal = () => {

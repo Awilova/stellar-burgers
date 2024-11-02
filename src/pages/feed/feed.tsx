@@ -7,7 +7,6 @@ import { selectOrders } from '@slices';
 import { getFeed } from '@thunk';
 
 export const Feed: FC = () => {
-  
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getFeed());
@@ -18,7 +17,12 @@ export const Feed: FC = () => {
   if (!orders.length) {
     return <Preloader />;
   }
-return (
-  <FeedUI orders={orders} handleGetFeeds={() => {dispatch(getFeed())}} />
-);
+  return (
+    <FeedUI
+      orders={orders}
+      handleGetFeeds={() => {
+        dispatch(getFeed());
+      }}
+    />
+  );
 };

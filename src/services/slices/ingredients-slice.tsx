@@ -1,22 +1,18 @@
 import { getIngredientsApi } from '@api';
-import {
-  createSlice,
-  PayloadAction
-} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 import { getIngredients } from '@thunk';
-
 
 interface TIngredientsState {
   ingredients: TIngredient[];
   isLoading: boolean;
-  error: null | undefined | string; 
-};
+  error: null | undefined | string;
+}
 
 const initialState: TIngredientsState = {
   ingredients: [],
   isLoading: true,
-  error: null,
+  error: null
 };
 
 export const ingredientsSlice = createSlice({
@@ -43,7 +39,7 @@ export const ingredientsSlice = createSlice({
   },
   selectors: {
     selectIsLoading: (sliceState) => sliceState.isLoading,
-    selectIngredients: (sliceState) => sliceState.ingredients,
+    selectIngredients: (sliceState) => sliceState.ingredients
   }
 });
 

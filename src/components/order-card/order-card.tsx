@@ -12,7 +12,7 @@ const maxIngredients = 6;
 
 export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
   const location = useLocation();
-  
+
   const nextIngredients = useAppSelector(selectIngredients);
 
   const ingredients: TIngredient[] = nextIngredients;

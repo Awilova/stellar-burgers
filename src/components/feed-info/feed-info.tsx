@@ -12,11 +12,10 @@ const getOrders = (orders: TOrder[], status: string): number[] =>
     .map((item) => item.number)
     .slice(0, 20);
 
-type TFeed = {total?: number; totalToday?: number};
+type TFeed = { total?: number; totalToday?: number };
 
 export const FeedInfo: FC = () => {
- 
-const orderData = useAppSelector(selectOrders);
+  const orderData = useAppSelector(selectOrders);
 
   const orders: TOrder[] = orderData.feeds.orders;
   const feed: TFeed = {};

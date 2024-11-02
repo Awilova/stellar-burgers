@@ -3,15 +3,12 @@ import { TOrdersData } from '@utils-types';
 import { getFeed } from '@thunk';
 
 interface TFeedsState {
-  feeds: TOrdersData,
-  error: string | null | undefined
+  feeds: TOrdersData;
+  error: string | null | undefined;
 }
 
 const initialState: TFeedsState = {
-  feeds: 
-  {orders: [],
-  total: 0,
-  totalToday: 0,},
+  feeds: { orders: [], total: 0, totalToday: 0 },
   error: null
 };
 
@@ -29,7 +26,7 @@ export const feedsSlice = createSlice({
           state.feeds.orders = action.payload.orders;
         }
       )
-      .addCase(getFeed.rejected, (state,action) => {
+      .addCase(getFeed.rejected, (state, action) => {
         state.error = action.error.message;
       });
   },
@@ -38,6 +35,5 @@ export const feedsSlice = createSlice({
   }
 });
 
-export const feedReducer = feedsSlice.reducer ;
+export const feedReducer = feedsSlice.reducer;
 export const { selectOrders } = feedsSlice.selectors;
-
