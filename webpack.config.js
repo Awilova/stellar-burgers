@@ -2,6 +2,7 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const { watch } = require('fs');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.tsx'),
@@ -78,6 +79,8 @@ module.exports = {
       '@utils-types': path.resolve(__dirname, './src/utils/types'),
       '@api': path.resolve(__dirname, './src/utils/burger-api.ts'),
       '@slices': path.resolve(__dirname, './src/services/slices'),
+      '@hooks': path.resolve(__dirname, './src/services/hooks'),
+      '@thunk': path.resolve(__dirname, './src/services/thunk'),
       '@selectors': path.resolve(__dirname, './src/services/selectors')
     }
   },
@@ -90,6 +93,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 4000,
-    open: true
+    open: true,
+    hot: true
   }
 };

@@ -11,7 +11,8 @@
   },
   "rules": {
     "prettier/prettier": [
-      "warn",
+      // "warn",
+      "off",
       {
         "usePrettierrc": true
       }

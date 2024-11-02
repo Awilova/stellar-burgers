@@ -1,4 +1,4 @@
-import { useSelector } from '../../services/store';
+import { useAppSelector } from '@hooks';
 
 import styles from './constructor-page.module.css';
 
@@ -7,10 +7,10 @@ import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
 
-export const ConstructorPage: FC = () => {
-  /** TODO: взять переменную из стора */
-  const isIngredientsLoading = false;
+import { selectIsLoading } from '@slices';
 
+export const ConstructorPage: FC = () => {
+  const isIngredientsLoading = useAppSelector(selectIsLoading);
   return (
     <>
       {isIngredientsLoading ? (
