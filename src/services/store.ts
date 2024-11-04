@@ -3,7 +3,7 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { constructorSlice } from './slices/constructor-slice';
 import { ingredientsSlice } from './slices/ingredients-slice';
 import { feedsSlice } from './slices/feeds-slice';
-import {userSlice} from './slices/user-slice';
+import { userSlice } from './slices/user-slice';
 
 const rootReducer = combineSlices(
   constructorSlice,

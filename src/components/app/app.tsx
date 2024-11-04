@@ -11,29 +11,34 @@ import {
 } from '@pages';
 import '../../index.css';
 import styles from './app.module.css';
-import { Modal, IngredientDetails, OrderInfo } from '@components';
+import { Modal, IngredientDetails, OrderInfo, AppHeader } from '@components';
 
 import {
   Routes,
   Route,
   useNavigate,
   useParams,
-  useLocation
+  useLocation,
+  useMatch
 } from 'react-router-dom';
 import ProtectedRoute from '../protected-route/protected-route';
 
-import { AppHeader } from '@components';
 import { FC, useEffect } from 'react';
 import { useAppDispatch } from '@hooks';
 
 import { getUser } from '@thunk';
 import { getIngredients } from '@thunk';
+import { title } from 'process';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { number } = useParams();
+  const profileOrdersMatcher = useMatch('/profile/orders/:number')?.params
+    .number;
+  const feedMatcher = useMatch('/feed/:number')?.params.number;
   const location = useLocation();
+  const orderNumber = profileOrdersMatcher || feedMatcher;
   const backgroundLocation = location.state?.background;
 
   useEffect(() => {
@@ -45,7 +50,7 @@ const App: FC = () => {
     <>
       <div className={styles.app}>
         <AppHeader />
-        <Routes location={location || backgroundLocation}>
+        <Routes location={backgroundLocation || location}>
           <Route path='/' element={<ConstructorPage />} />
           <Route path='/feed' element={<Feed />} />
           <Route
@@ -104,14 +109,45 @@ const App: FC = () => {
               </ProtectedRoute>
             }
           />
-          <Route path='/ingredients/:id' element={<IngredientDetails />} />
-          <Route path='/feed/:number' element={<OrderInfo />} />
+          <Route
+            path='/ingredients/:id'
+            element={
+              <div className={styles.detailPageWrap}>
+                <p
+                  className={`text text_type_main-medium ${styles.detailHeader}`}
+                >
+                  Детали ингредиента
+                </p>
+                <IngredientDetails />
+              </div>
+            }
+          />
+          <Route
+            path='/feed/:number'
+            element={
+              <div className={styles.detailPageWrap}>
+                <p
+                  className={`text text_type_main-medium ${styles.detailHeader}`}
+                >
+                  {`#${orderNumber && orderNumber.padStart(6, '0')}`}
+                </p>
+                <OrderInfo />
+              </div>
+            }
+          />
           <Route
             path='/profile/orders/:number'
             element={
-              <ProtectedRoute>
-                <OrderInfo />
-              </ProtectedRoute>
+              <div className={styles.detailPageWrap}>
+                <p
+                  className={`text text_type_main-medium ${styles.detailHeader}`}
+                >
+                  {`#${orderNumber && orderNumber.padStart(6, '0')}`}
+                </p>
+                <ProtectedRoute>
+                  <OrderInfo />
+                </ProtectedRoute>
+              </div>
             }
           />
         </Routes>
@@ -131,7 +167,10 @@ const App: FC = () => {
             <Route
               path='/feed/:number'
               element={
-                <Modal title={`Заказ`} onClose={() => navigate(-1)}>
+                <Modal
+                  title={`#${orderNumber && orderNumber.padStart(6, '0')}`}
+                  onClose={() => navigate(-1)}
+                >
                   <OrderInfo />
                 </Modal>
               }
