@@ -1,14 +1,22 @@
-import { FC, memo } from 'react';
+import { FC, memo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
 
+import { changeBun, addIngredient } from '@slices';
+import { useAppDispatch } from '@hooks';
+
 export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
   ({ ingredient, count }) => {
     const location = useLocation();
-
-    const handleAdd = () => {};
+    const dispatch = useAppDispatch();
+    const handleAdd = () =>
+      dispatch(
+        ingredient.type === 'bun'
+          ? changeBun(ingredient)
+          : addIngredient(ingredient)
+      );
 
     return (
       <BurgerIngredientUI
