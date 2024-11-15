@@ -1,4 +1,4 @@
-import { createAppAsyncThunk } from '@hooks';
+import { createAppAsyncThunk } from '../hooks/index';
 import {
   getUserApi,
   registerUserApi,
@@ -8,7 +8,7 @@ import {
   updateUserApi,
   TRegisterData,
   TLoginData
-} from '@api';
+} from '../../utils/burger-api';
 
 export const getUser = createAppAsyncThunk('user/getUser', async () =>
   getUserApi()

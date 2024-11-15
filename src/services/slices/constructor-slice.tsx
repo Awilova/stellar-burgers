@@ -1,6 +1,6 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
-import { postOrderBurgers, getOrderByNumber } from '@thunk';
+import { postOrderBurgers, getOrderByNumber } from '../thunk/constructor-thunk';
 
 type TConstructorBuns = {
   price: number;
@@ -20,7 +20,7 @@ export interface TConstructorState {
   error: string | null;
 }
 
-const initialState: TConstructorState = {
+export const initialState: TConstructorState = {
   constructorIngredients: {
     ingredients: []
   },

@@ -1,5 +1,5 @@
-import { createAppAsyncThunk } from '@hooks';
-import { getFeedsApi } from '@api';
+import { createAppAsyncThunk } from '../hooks/index';
+import { getFeedsApi } from '../../utils/burger-api';
 
 export const getFeed = createAppAsyncThunk(`feed/fetch`, async () =>
   getFeedsApi()
