@@ -20,7 +20,7 @@ export interface TConstructorState {
   error: string | null;
 }
 
-export const initialState: TConstructorState = {
+const initialState: TConstructorState = {
   constructorIngredients: {
     ingredients: []
   },

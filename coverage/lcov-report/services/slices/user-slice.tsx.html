@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.64% </span>
+                <span class="strong">96.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>100/124</span>
+                <span class='fraction'>120/124</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">72.72% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>8/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.64% </span>
+                <span class="strong">96.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>100/124</span>
+                <span class='fraction'>120/124</span>
             </div>
         
             
@@ -248,21 +248,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -276,9 +267,18 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -290,10 +290,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -372,23 +372,23 @@ export const userSlice = createSlice({
         state.isAuth = true;
       })
       .addCase(logoutUser.fulfilled, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        if (action.payload.success) {</span>
-<span class="cstat-no" title="statement not covered" >          localStorage.clear();</span>
-<span class="cstat-no" title="statement not covered" >          deleteCookie('accessToken');</span>
-<span class="cstat-no" title="statement not covered" >          state.user = null;</span>
-<span class="cstat-no" title="statement not covered" >          state.isAuth = false;</span>
-<span class="cstat-no" title="statement not covered" >        } else {</span>
+        if (action.payload.success) {
+          localStorage.clear();
+          deleteCookie('accessToken');
+          state.user = null;
+          state.isAuth = false;
+        }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
 <span class="cstat-no" title="statement not covered" >          state.error = 'Возникла ошибка. Повторите еще раз';</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
       })
       .addMatcher(isFulfilled(loginUser, regUser), (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.error = action.payload.success ? '' : 'Ошибка авторизации';</span>
-<span class="cstat-no" title="statement not covered" >        state.request = false;</span>
-<span class="cstat-no" title="statement not covered" >        setCookie('accessToken', action.payload.accessToken);</span>
-<span class="cstat-no" title="statement not covered" >        localStorage.setItem('refreshToken', action.payload.refreshToken);</span>
-<span class="cstat-no" title="statement not covered" >        state.user = action.payload.user;</span>
-<span class="cstat-no" title="statement not covered" >        state.isAuth = true;</span>
-<span class="cstat-no" title="statement not covered" >        state.isAuthChecked = true;</span>
+        state.error = action.payload.success ? '' <span class="branch-0 cbranch-no" title="branch not covered" >: 'Ошибка авторизации';</span>
+        state.request = false;
+        setCookie('accessToken', action.payload.accessToken);
+        localStorage.setItem('refreshToken', action.payload.refreshToken);
+        state.user = action.payload.user;
+        state.isAuth = true;
+        state.isAuthChecked = true;
       })
       .addMatcher(
         isPending(
@@ -400,9 +400,9 @@ export const userSlice = createSlice({
           getUserOrders
         ),
         (state) =&gt; {
-<span class="cstat-no" title="statement not covered" >          state.request = true;</span>
-<span class="cstat-no" title="statement not covered" >          state.error = '';</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+          state.request = true;
+          state.error = '';
+        }
       )
       .addMatcher(
         isRejected(
@@ -414,10 +414,10 @@ export const userSlice = createSlice({
           getUserOrders
         ),
         (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >          state.request = false;</span>
-<span class="cstat-no" title="statement not covered" >          state.error = action.error.message || '';</span>
-<span class="cstat-no" title="statement not covered" >          state.isAuthChecked = true;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+          state.request = false;
+          state.error = action.error.message<span class="branch-0 cbranch-no" title="branch not covered" > || '';</span>
+          state.isAuthChecked = true;
+        }
       );
   },
   selectors: {
@@ -442,7 +442,7 @@ export const {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-14T12:48:37.200Z
+                at 2024-11-19T13:28:22.744Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
