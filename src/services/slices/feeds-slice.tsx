@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TOrdersData } from '@utils-types';
-import { getFeed } from '@thunk';
+import { getFeed } from '../thunk/feeds-thunk';
 
 interface TFeedsState {
   feeds: TOrdersData;

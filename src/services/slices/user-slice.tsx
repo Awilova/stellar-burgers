@@ -14,7 +14,7 @@ import {
   regUser,
   updateUser,
   getUserOrders
-} from '@thunk';
+} from '../thunk/user-thunk';
 
 interface TUserSlice {
   isAuth: boolean;
@@ -25,7 +25,7 @@ interface TUserSlice {
   userOrders: TOrder[];
 }
 
-const initialState: TUserSlice = {
+export const initialState: TUserSlice = {
   isAuth: false,
   isAuthChecked: false,
   user: null,

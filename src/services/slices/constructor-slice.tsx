@@ -1,6 +1,6 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
-import { postOrderBurgers, getOrderByNumber } from '@thunk';
+import { postOrderBurgers, getOrderByNumber } from '../thunk/constructor-thunk';
 
 type TConstructorBuns = {
   price: number;
