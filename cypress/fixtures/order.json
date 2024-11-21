@@ -1,13 +1,25 @@
 {
-    "success": true,
-    "order": {
-                  "name": "test",
-                  "status": "test",
-                  "number": "1",
-                  "createdAt": "test",
-                  "updatedAt": "test",
-                  "_id": "1",
-                  "ingredients": ["1", "2"]
-                },
-                "name": "test"
+  "success": true,
+  "order": 
+      {
+          "_id": "673dab91b27b06001c3e9526",
+          "ingredients": [
+              "643d69a5c3f7b9001cfa093c",
+              "643d69a5c3f7b9001cfa0949",
+              "643d69a5c3f7b9001cfa094a",
+              "643d69a5c3f7b9001cfa0948",
+              "643d69a5c3f7b9001cfa0947",
+              "643d69a5c3f7b9001cfa0940",
+              "643d69a5c3f7b9001cfa0941",
+              "643d69a5c3f7b9001cfa093f",
+              "643d69a5c3f7b9001cfa093c"
+          ],
+          "owner": "6728f122b27b06001c3e6639",
+          "status": "done",
+          "createdAt": "2024-11-20T09:27:45.285Z",
+          "updatedAt": "2024-11-20T09:27:46.138Z",
+          "number": 59843,
+          "__v": 0,
+           "name": "Астероидный фалленианский краторный бессмертный альфа-сахаридный экзо-плантаго био-марсианский метеоритный бургер"
+      }
 }
