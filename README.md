@@ -27,9 +27,11 @@
 ### Установка и запуск
 Клонируйте репозиторий и перейдите в его директорию:
 ```
-git clone git@github.com:Awilova/blog-customizer.git
-cd blog-customizer
+git clone git@github.com:Awilova/stellar-burgers.git
+cd stellar-burgers
 ```
+Для корректной работы запросов к серверу необходимо переименовать файл `.env.example` в `.env`.  
+
 Установите зависимости:
 ```
 npm ci
@@ -45,4 +47,4 @@ npm start
 Приложение будет доступно по адресу: [http://localhost:4000](http://localhost:4000)
 
 
-Для корректной работы запросов к серверу необходимо добавить переменную BURGER_API_URL в окружение. Сама ссылка находится в файле `.env.example`.
+
