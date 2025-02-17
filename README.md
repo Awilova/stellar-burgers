@@ -27,7 +27,7 @@
 ### Установка и запуск
 Клонируйте репозиторий и перейдите в его директорию:
 ```
-git clone git@github.com:Awilova/stellar-burgers.git
+git clone git@github.com/stellar-burgers.git
 cd stellar-burgers
 ```
 Для корректной работы запросов к серверу необходимо переименовать файл `.env.example` в `.env`.  
